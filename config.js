@@ -1,7 +1,7 @@
 module.exports = {
     app: {
         name: process.env.APP_NAME || "Weather App",
-        port: process.env.APP_PORT || 3000,
+        port: process.env.PORT || 3000,
     },
 
     services: {
