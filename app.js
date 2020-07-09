@@ -42,11 +42,11 @@ app.get('/weather', asyncRouter(async (req, res) => {
         const {
             summary,
             location,
-            currentTemperature,
+            temperature,
             currentPrecipitationProbability,
         } = await getWeatherByAddress(address);
 
-        const forecastSummary = `${summary}. It is currently ${currentTemperature} degrees out. There is a ${currentPrecipitationProbability} chance of rain.`;
+        const forecastSummary = `${summary}. It is currently ${temperature.current} degrees out with a high of ${temperature.high} and a low of ${temperature.low} degrees. There is a ${currentPrecipitationProbability} chance of rain.`;
 
         res.status(200).send({ status: true, data: { address, forecastSummary, location }});
     } catch (error) {

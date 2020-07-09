@@ -10,7 +10,11 @@ module.exports = async (address) => {
         return {
             location: place,
             summary: result.daily.data[0].summary,
-            currentTemperature: result.currently.temperature,
+            temperature: {
+                low: result.daily.data[0].temperatureLow,
+                high: result.daily.data[0].temperatureHigh,
+                current: result.currently.temperature,
+            },
             currentPrecipitationProbability: (result.currently.precipProbability * 100) + '%'
         };
     } catch (error) {console.log(error);
